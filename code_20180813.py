@@ -34,7 +34,9 @@ def is_valid_date(year, month, day):
       False otherwise
     """
     
-    if (datetime.MINYEAR <= year <= datetime.MAXYEAR) and (1 <= month <= 12) and (0 < day <= (days_in_month(year,month))):
+    if ((datetime.MINYEAR <= year <= datetime.MAXYEAR) and 
+        (1 <= month <= 12) and 
+        (0 < day <= (days_in_month(year,month)))):
         return True
     else:
         return False
@@ -54,9 +56,9 @@ def days_between(year1, month1, day1, year2, month2, day2):
       Returns 0 if either date is invalid or the second date is
       before the first date.
     """
-    if (is_valid_date(year1,month1,day1) == False):
+    if not is_valid_date(year1,month1,day1):
         return 0
-    elif (is_valid_date(year2,month2,day2) == False):
+    elif not is_valid_date(year2,month2,day2):
         return 0
     elif datetime.date(year1,month1,day1) > datetime.date(year2,month2,day2):
         return 0
